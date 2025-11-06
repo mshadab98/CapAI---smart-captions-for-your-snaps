@@ -11,6 +11,15 @@ export default function Navbar() {
     nav("/login");
   }
 
+   if (loading) {
+    return (
+      <div className="bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-5xl mx-auto p-4">
+          <span className="text-gray-400 text-sm">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-5xl mx-auto flex items-center justify-between p-4">
