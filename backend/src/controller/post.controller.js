@@ -1,6 +1,6 @@
 const generateCaption = require('../service/ai.service')
 const uploadFile = require('../service/storage.service')
-const {v4: uuidv4} = require('uuid')
+import { v4 as uuidv4 } from "uuid";
 const postModel = require('../models/post.model')
 
 async function createPostController (req,res){
