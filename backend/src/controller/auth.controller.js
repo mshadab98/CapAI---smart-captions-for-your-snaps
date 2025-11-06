@@ -23,7 +23,12 @@ async function registerController(req, res) {
     process.env.JWT_SECRET
   );
 
-  res.cookie("token", token);
+  res.cookie("token", token,{
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  path: "/"
+  });
 
   res.status(201).json({
     message: "user created successfully",
@@ -46,7 +51,13 @@ if(!isPasswordValid){
     return res.status(400).json({message:"Invalid Password "})
 }
 const token = jwt.sign({id:user._id},process.env.JWT_SECRET)
-res.cookie('token',token)
+res.cookie('token',token,{
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  path: "/"
+
+})
 
 res.status(200).json({
     message:"User logged in successfully",
