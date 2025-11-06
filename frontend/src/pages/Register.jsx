@@ -96,7 +96,7 @@ export default function Register() {
                 to="/login" 
                 className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
               >
-                Sign in here
+                Login here
               </Link>
             </p>
           </div>

@@ -8,11 +8,10 @@ const imagekit = new ImageKit({
 
 async function uploadFile(file,filename){
  const response = await imagekit.upload({
-    file:file , //required
+    file:file , 
     fileName:filename,
     folder: "cohort-Ai-project-posts"
  })
  return response
 }
-
 module.exports = uploadFile;

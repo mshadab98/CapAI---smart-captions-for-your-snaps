@@ -82,7 +82,7 @@ export default function Login() {
         Signing in...
       </div>
     ) : (
-      "Sign In"
+      "Login"
     )}
   </button>
 </div>
@@ -97,7 +97,7 @@ export default function Login() {
                 to="/register" 
                 className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
               >
-                Create one here
+                Create account here
               </Link>
             </p>
           </div>
