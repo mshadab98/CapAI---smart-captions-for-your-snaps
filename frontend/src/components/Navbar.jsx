@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user, loading, logout } = useAuth();
   const nav = useNavigate();
   const loc = useLocation();
 
@@ -11,7 +11,8 @@ export default function Navbar() {
     nav("/login");
   }
 
-   if (loading) {
+  // Prevent UI flashing before auth check completes
+  if (loading) {
     return (
       <div className="bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-5xl mx-auto p-4">
@@ -20,6 +21,7 @@ export default function Navbar() {
       </div>
     );
   }
+
   return (
     <div className="bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-5xl mx-auto flex items-center justify-between p-4">
@@ -30,6 +32,7 @@ export default function Navbar() {
           >
             AI Caption
           </Link>
+
           {user && (
             <nav className="flex gap-1">
               <Link
@@ -55,6 +58,7 @@ export default function Navbar() {
             </nav>
           )}
         </div>
+
         <div>
           {user ? (
             <div className="flex items-center gap-4">
