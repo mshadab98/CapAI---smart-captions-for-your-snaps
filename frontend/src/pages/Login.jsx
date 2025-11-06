@@ -24,15 +24,12 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-rose-50 via-orange-50 to-amber-50 flex items-center justify-center py-8 px-6">
+    <div className=" mt-4 flex items-center justify-center ">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-sm border border-orange-100 p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-linear-to-r from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-2xl">🔐</span>
-            </div>
-            <h1 className="text-3xl font-bold bg-linear-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
               Welcome Back
             </h1>
             <p className="text-gray-600">Sign in to your AI Caption account</p>
@@ -45,7 +42,7 @@ export default function Login() {
                 Username
               </label>
               <input
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 placeholder="Enter your username"
                 value={form.username}
                 onChange={(e) => setForm((f) => ({ ...f, username: e.target.value }))}
@@ -58,7 +55,7 @@ export default function Login() {
                 Password
               </label>
               <input
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 type="password"
                 placeholder="Enter your password"
                 value={form.password}
@@ -74,28 +71,31 @@ export default function Login() {
             )}
 
             {/* Login Button */}
-            <button
-              className="w-full py-4 bg-linear-to-r from-orange-500 to-pink-500 text-white rounded-xl font-semibold hover:from-orange-600 hover:to-pink-600 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={loading}
-            >
-              {loading ? (
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  Signing in...
-                </div>
-              ) : (
-                "Sign In"
-              )}
-            </button>
+            <div className="flex justify-center">
+  <button
+    className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+    disabled={loading}
+  >
+    {loading ? (
+      <div className="flex items-center justify-center gap-2">
+        <div className="border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        Signing in...
+      </div>
+    ) : (
+      "Sign In"
+    )}
+  </button>
+</div>
+
           </form>
 
           {/* Register Link */}
-          <div className="text-center mt-6 pt-6 border-t border-gray-100">
+          <div className="text-center mt-6 pt-6 border-t border-gray-200">
             <p className="text-gray-600">
               Don't have an account?{" "}
               <Link 
                 to="/register" 
-                className="font-semibold text-orange-600 hover:text-orange-700 transition-colors duration-200"
+                className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
               >
                 Create one here
               </Link>

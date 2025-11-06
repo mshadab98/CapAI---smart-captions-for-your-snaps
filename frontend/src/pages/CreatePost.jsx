@@ -30,19 +30,19 @@ export default function CreatePost() {
       setLoading(false);
     }
   }
-  function handleCopy() {
-  navigator.clipboard.writeText(result.caption);
-  setCopied(true);
-  setTimeout(() => setCopied(false), 1500);
-}
 
+  function handleCopy() {
+    navigator.clipboard.writeText(result.caption);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-rose-50 via-orange-50 to-amber-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-2xl mx-auto px-6">
-        <div className="bg-white rounded-2xl shadow-sm border border-orange-100 p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold bg-linear-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent mb-3">
+            <h1 className="text-3xl font-bold text-gray-900 mb-3">
               Create Post
             </h1>
             <p className="text-gray-600">Upload an image and let AI generate the perfect caption</p>
@@ -56,7 +56,7 @@ export default function CreatePost() {
             )}
 
             {/* File Upload Area */}
-            <div className="border-2 border-dashed border-orange-200 rounded-2xl p-8 text-center hover:border-orange-300 transition-colors duration-300 bg-orange-50/50">
+            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center hover:border-blue-400 transition-colors duration-300 bg-gray-50">
               <input
                 type="file"
                 accept="image/*"
@@ -65,7 +65,7 @@ export default function CreatePost() {
                 id="file-upload"
               />
               <label htmlFor="file-upload" className="cursor-pointer block">
-                <div className="w-16 h-16 bg-linear-to-r from-orange-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">📷</span>
                 </div>
                 <p className="text-gray-700 font-medium mb-2">
@@ -81,7 +81,7 @@ export default function CreatePost() {
             <button
               type="submit"
               disabled={loading || !file}
-              className="w-full py-4 bg-linear-to-r from-orange-500 to-pink-500 text-white rounded-xl font-semibold hover:from-orange-600 hover:to-pink-600 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="flex items-center justify-center gap-2">
@@ -96,9 +96,9 @@ export default function CreatePost() {
 
           {/* Result Display */}
           {result && (
-            <div className="mt-8 p-6 bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200">
+            <div className="mt-8 p-6 bg-blue-50 rounded-2xl border border-blue-200">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm">✓</span>
                 </div>
                 <h3 className="font-semibold text-gray-900">Caption Generated!</h3>
@@ -113,12 +113,11 @@ export default function CreatePost() {
                     </p>
                   </div>
                   <button
-  onClick={handleCopy}
-  className="w-full py-2 border border-orange-300 text-orange-600 rounded-lg font-medium hover:bg-orange-50 transition-colors duration-200"
->
-  {copied ? "✅ Copied!" : "Copy Caption"}
-</button>
-
+                    onClick={handleCopy}
+                    className="w-full py-2 border border-blue-300 text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors duration-200"
+                  >
+                    {copied ? "✅ Copied!" : "Copy Caption"}
+                  </button>
                 </div>
                 
                 <div className="flex justify-center">

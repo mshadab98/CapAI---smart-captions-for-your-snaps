@@ -24,18 +24,15 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-rose-50 via-orange-50 to-amber-50 flex items-center justify-center py-8 px-6">
+    <div className="mt-4 flex items-center justify-center ">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-sm border border-orange-100 p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-linear-to-r from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-2xl">✨</span>
-            </div>
-            <h1 className="text-3xl font-bold bg-linear-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
               Join AI Caption
             </h1>
-            <p className="text-gray-600">Create your account and start generating amazing captions</p>
+            <p className="text-gray-600">Start generating amazing captions</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -45,7 +42,7 @@ export default function Register() {
                 Username
               </label>
               <input
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 placeholder="Choose a username"
                 value={form.username}
                 onChange={(e) => setForm((f) => ({ ...f, username: e.target.value }))}
@@ -58,7 +55,7 @@ export default function Register() {
                 Password
               </label>
               <input
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 outline-none"
                 type="password"
                 placeholder="Create a password"
                 value={form.password}
@@ -74,8 +71,9 @@ export default function Register() {
             )}
 
             {/* Register Button */}
+            <div className="flex justify-center">
             <button
-              className="w-full py-4 bg-linear-to-r from-orange-500 to-pink-500 text-white rounded-xl font-semibold hover:from-orange-600 hover:to-pink-600 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={loading}
             >
               {loading ? (
@@ -87,15 +85,16 @@ export default function Register() {
                 "Create Account"
               )}
             </button>
+            </div>
           </form>
 
           {/* Login Link */}
-          <div className="text-center mt-6 pt-6 border-t border-gray-100">
+          <div className="text-center mt-6 pt-6 border-t border-gray-200">
             <p className="text-gray-600">
               Already have an account?{" "}
               <Link 
                 to="/login" 
-                className="font-semibold text-orange-600 hover:text-orange-700 transition-colors duration-200"
+                className="font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
               >
                 Sign in here
               </Link>

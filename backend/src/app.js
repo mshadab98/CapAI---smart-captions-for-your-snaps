@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 
 const app = express()
 app.use(cors({
-   origin: "https://cap-ai-smart-captions-for-your-snap-three.vercel.app/",
+   origin: "http://localhost:5173",
    credentials: true
 }));
 app.use(cookieParser())

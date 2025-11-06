@@ -12,32 +12,32 @@ export default function Navbar() {
   }
 
   return (
-    <div className="bg-linear-to-r from-rose-50 to-orange-50 border-b border-orange-200 shadow-sm">
+    <div className="bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-5xl mx-auto flex items-center justify-between p-4">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           <Link 
             to="/" 
-            className="font-bold text-2xl bg-linear-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent"
+            className="font-bold text-2xl text-gray-900 hover:text-blue-600 transition-colors duration-200"
           >
             AI Caption
           </Link>
           {user && (
-            <nav className="flex gap-6 text-sm">
+            <nav className="flex gap-1">
               <Link
-                className={`px-3 py-2 rounded-lg transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
                   loc.pathname === "/" 
-                    ? "bg-white text-orange-600 shadow-md font-medium" 
-                    : "text-gray-600 hover:text-orange-500 hover:bg-white/50"
+                    ? "bg-blue-50 text-blue-600 border border-blue-100" 
+                    : "text-gray-600 hover:text-blue-500 hover:bg-gray-50"
                 }`}
                 to="/"
               >
                 Dashboard
               </Link>
               <Link
-                className={`px-3 py-2 rounded-lg transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
                   loc.pathname === "/create" 
-                    ? "bg-white text-orange-600 shadow-md font-medium" 
-                    : "text-gray-600 hover:text-orange-500 hover:bg-white/50"
+                    ? "bg-blue-50 text-blue-600 border border-blue-100" 
+                    : "text-gray-600 hover:text-blue-500 hover:bg-gray-50"
                 }`}
                 to="/create"
               >
@@ -49,29 +49,29 @@ export default function Navbar() {
         <div>
           {user ? (
             <div className="flex items-center gap-4">
-              <span className="text-sm text-gray-700 bg-white/80 px-3 py-1.5 rounded-full border border-orange-200">
-                👋 Hi, {user.username}
+              <span className="text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
+                Hello, {user.username}
               </span>
               <button 
                 onClick={handleLogout} 
-                className="px-4 py-2 bg-linear-to-r from-orange-500 to-pink-500 text-white rounded-lg hover:from-orange-600 hover:to-pink-600 transition-all duration-200 shadow-sm hover:shadow-md font-medium"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium shadow-sm hover:shadow-md"
               >
                 Logout
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Link 
                 to="/login" 
-                className="px-4 py-2 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
+                className="px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
               >
                 Login
               </Link>
               <Link 
                 to="/register" 
-                className="px-4 py-2 bg-linear-to-r from-orange-500 to-pink-500 text-white rounded-lg hover:from-orange-600 hover:to-pink-600 transition-all duration-200 shadow-sm hover:shadow-md font-medium"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium shadow-sm hover:shadow-md"
               >
-                Register
+                Get Started
               </Link>
             </div>
           )}
