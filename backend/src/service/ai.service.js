@@ -1,37 +1,42 @@
-const{ GoogleGenAI } = require ("@google/genai");
+const { GoogleGenAI } = require("@google/genai");
 
-// The client gets the API key from the environment variable `GEMINI_API_KEY`.
+// Client with API Key
 const ai = new GoogleGenAI({
-    apiKey:"AIzaSyDs2agE9urlxQM3G914NJ5si1-PTFP-8Bc"
+  apiKey: "AIzaSyDs2agE9urlxQM3G914NJ5si1-PTFP-8Bc"
 });
 
 async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: "Explain how AI works in a few words",
-  });
-  console.log(response.text);
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: "Explain how AI works in a few words",
+    });
+
+    console.log(response.text);
+  } catch (error) {
+    console.error("AI Error (main):", error.message);
+  }
 }
 
 main();
 
-async function generateCaption(base64ImageFile){
+async function generateCaption(base64ImageFile) {
+  try {
+    const contents = [
+      {
+        inlineData: {
+          mimeType: "image/jpeg",
+          data: base64ImageFile,
+        },
+      },
+      { text: "Caption this image." },
+    ];
 
-const contents = [
-  {
-    inlineData: {
-      mimeType: "image/jpeg",
-      data: base64ImageFile,
-    },
-  },
-  { text: "Caption this image." },
-];
-
-const response = await ai.models.generateContent({
-  model: "gemini-2.5-flash",
-  contents: contents,
-  config: {
-  systemInstruction: `
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: contents,
+      config: {
+        systemInstruction: `
 You are a professional social media caption writer.
 Generate ONE high-quality caption for the provided image.
 
@@ -51,11 +56,17 @@ Rules for the caption:
    - Add explanations or extra text
 
 Output ONLY the caption. No extra sentences.
-`,
+        `,
+      },
+    });
+
+    return response.text;
+  } catch (error) {
+    console.error("AI Error (generateCaption):", error.message);
+
+    // Return safe response instead of crashing server
+    return "AI service busy hai, thodi der baad try karo ";
+  }
 }
 
-});
-return response.text;
-}
-
-module.exports = generateCaption
+module.exports = generateCaption;
